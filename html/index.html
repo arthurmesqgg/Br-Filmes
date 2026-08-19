@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR-Filmes</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    if (localStorage.getItem('tema') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+
+<!-- ================= HOUVER LIGHTBOX (ao passar o mouse por cima do card do filme, mostra uma prévia) ================= -->
+
+<div class="movie-card">
+
+  <img src="/img/batman.jpg" alt="Batman">
+
+  <div class="movie-overlay">
+
+    <h3>Batman</h3>
+
+    <p>2022 • Ação/Suspense</p>
+
+    <button>▶ VER FILME</button>
+
+  </div>
+
+</div>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="navbar" id="navbar">
+
+    <!-- navbar esquerda menu -->
+    <div class="nav-left">
+
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
+
+      <div class="dropdown" id="dropdown">
+
+        <div class="trilho" id="trilho">
+          <div class="indicador"></div>
+        </div>
+
+        <span>Modo escuro/claro</span>
+
+      </div>
+
+    </div>
+
+    <!-- DESKTOP: centro (links) -->
+    <nav class="nav-center" id="nav-center">
+      <a href="#filmes">FILMES</a>
+      <a href="#lancamentos">LANÇAMENTOS</a>
+      <a href="#categorias">CATEGORIAS</a>
+      <a href="#contato">CONTATO</a>
+    </nav>
+
+    <!-- DESKTOP: direita (logo) -->
+    <div class="nav-right">
+
+      <a href="#" class="logo">BR-FILMES</a>
+
+    </div>
+
+    <!-- MOBILE -->
+    <div class="mobile-navbar">
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menu">☰</button>
+
+      <a href="#" class="mobile-logo">BR-FILMES</a>
+
+      <button class="mobile-user-btn" id="mobile-user-btn" aria-label="Conta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- gaveta esquerda MOBILE menu -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="mobile-drawer-inner">
+
+        <a href="#filmes" class="drawer-link">
+          <span class="drawer-icon">→</span>
+          Filmes
+        </a>
+
+        <a href="#lancamentos" class="drawer-link">
+          <span class="drawer-icon">→</span>
+          Lançamentos
+        </a>
+
+        <a href="#categorias" class="drawer-link">
+          <span class="drawer-icon">→</span>
+          Categorias
+        </a>
+
+        <a href="#contato" class="drawer-link">
+          <span class="drawer-icon">→</span>
+          Contato
+        </a>
+
+        <div class="drawer-tema">
+          <div class="trilho" id="trilho-mobile">
+            <div class="indicador"></div>
+          </div>
+          <span>Modo escuro/claro</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- gaveta direita MOBILE user -->
+    <div class="mobile-user-drawer" id="mobile-user-drawer">
+      <div class="mobile-drawer-inner">
+
+        <a href="login.html" class="drawer-link drawer-user-link">
+          <span class="drawer-icon">→</span>
+          Entrar
+        </a>
+
+        <a href="cadastro.html" class="drawer-link drawer-user-link">
+          <span class="drawer-icon">→</span>
+          Criar Conta
+        </a>
+
+      </div>
+    </div>
+
+    <!-- overlay -->
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+
+  </header>
+
+
+  <!-- ================= BODY ================= -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="carousel">
+
+        <div class="slides">
+          <img src="/img/bat.jpg" alt="Filme em destaque: Batman">
+          <img src="/img/spider.jpg" alt="Filme em destaque: Homem-Aranha">
+          <img src="/img/banner.jpg" alt="Filme em destaque">
+        </div>
+
+        <button class="prev" aria-label="Slide anterior">&#10094;</button>
+        <button class="next" aria-label="Próximo slide">&#10095;</button>
+
+        <div class="carousel-dots" id="carousel-dots"></div>
+
+      </div>
+
+      <div class="hero-info">
+
+        <strong class="strong-title">BEM-VINDO</strong>
+
+        <br><br><br>
+
+        <p>
+          NA BR-FILMES, VOCÊ PODE
+          ASSISTIR FILMES DE TODOS OS
+          TIPOS, SEM SE PREOCUPAR COM
+          ANÚNCIOS.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="login.html" class="btn">
+            LOGIN
+          </a>
+
+          <a href="cadastro.html" class="btn">
+            CADASTRO
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FILMES ================= -->
+
+    <section class="movie-section" id="filmes">
+
+      <h2 class="filmes-h2 reveal">FILMES</h2>
+
+      <div class="movie-carousel">
+
+        <button class="carousel-arrow prev-movie" aria-label="Filmes anteriores">
+          &#10094;
+        </button>
+
+        <div class="movie-list">
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/filme1.jpg" alt="Filme 1">
+            <div class="movie-overlay">
+              <h3>Filme 1</h3>
+              <p>2024 • Ação/Suspense</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/filme2.jpg" alt="Filme 2">
+            <div class="movie-overlay">
+              <h3>Filme 2</h3>
+              <p>2023 • Drama</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/filme3.jpg" alt="Filme 3">
+            <div class="movie-overlay">
+              <h3>Filme 3</h3>
+              <p>2022 • Terror</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/filme4.jpg" alt="Filme 4">
+            <div class="movie-overlay">
+              <h3>Filme 4</h3>
+              <p>2021 • Comédia</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/filme5.jpg" alt="Filme 5">
+            <div class="movie-overlay">
+              <h3>Filme 5</h3>
+              <p>2020 • Ficção</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+        </div>
+
+        <button class="carousel-arrow next-movie" aria-label="Próximos filmes">
+          &#10095;
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= LANÇAMENTOS ================= -->
+
+    <section class="movie-section" id="lancamentos">
+
+      <h2 class="lancamentos-h2 reveal">LANÇAMENTOS</h2>
+
+      <div class="movie-carousel">
+
+        <button class="carousel-arrow prev-movie" aria-label="Lançamentos anteriores">
+          &#10094;
+        </button>
+
+        <div class="movie-list">
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/batman.jpg" alt="Lançamento: Batman">
+            <div class="movie-overlay">
+              <h3>Batman</h3>
+              <p>2022 • Ação/Suspense</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/spider.jpg" alt="Lançamento: Homem-Aranha">
+            <div class="movie-overlay">
+              <h3>Homem-Aranha</h3>
+              <p>2023 • Ação/Aventura</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/lancamento3.jpg" alt="Lançamento 3">
+            <div class="movie-overlay">
+              <h3>Lançamento 3</h3>
+              <p>2024 • Suspense</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/lancamento4.jpg" alt="Lançamento 4">
+            <div class="movie-overlay">
+              <h3>Lançamento 4</h3>
+              <p>2024 • Drama</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+          <a href="#" class="movie-card reveal">
+            <img src="/img/lancamento5.jpg" alt="Lançamento 5">
+            <div class="movie-overlay">
+              <h3>Lançamento 5</h3>
+              <p>2024 • Terror</p>
+              <button>▶ VER FILME</button>
+            </div>
+          </a>
+
+        </div>
+
+        <button class="carousel-arrow next-movie" aria-label="Próximos lançamentos">
+          &#10095;
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIAS ================= -->
+
+    <section class="categories" id="categorias">
+
+      <h2>CATEGORIAS</h2>
+
+      <div class="category-list">
+
+        <a class="reveal" href="#">AÇÃO</a>
+        <a class="reveal" href="#">TERROR</a>
+        <a class="reveal" href="#">SUSPENSE</a>
+        <a class="reveal" href="#">COMÉDIA</a>
+
+      </div>
+
+    </section>
+
+     <!-- ================= BANNER ================= -->
+
+    <img src="/img/banner.jpg" class="banner" id="banner">
+
+  </main>
+
+  <!-- ================= LIGHTBOX DOS FILMES ================= -->
+
+  <div id="lightbox" class="lightbox">
+    <button id="fechar-lightbox" class="lightbox-fechar" aria-label="Fechar">&times;</button>
+    <button class="lightbox-nav prev-img" aria-label="Filme anterior">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Filme selecionado">
+    <button class="lightbox-nav next-img" aria-label="Próximo filme">&#10095;</button>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer id="contato">
+
+    <div class="ft-grid">
+
+      <div class="ft-col">
+        <p class="ft-label">Sobre</p>
+        <p class="ft-title">BR-FILMES</p>
+        <p class="ft-sub">
+          Seu catálogo de filmes.<br>
+          <span class="ft-strong">Assista sem anúncios</span>, quando e onde quiser.
+        </p>
+      </div>
+
+      <div class="ft-col">
+        <p class="ft-label">Navegação</p>
+        <div class="ft-tools">
+          <a href="#filmes" class="ft-pill">Filmes</a>
+          <a href="#lancamentos" class="ft-pill">Lançamentos</a>
+          <a href="#categorias" class="ft-pill">Categorias</a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <p class="ft-label">Categorias</p>
+        <div class="ft-tools">
+          <a href="#categorias" class="ft-pill">Ação</a>
+          <a href="#categorias" class="ft-pill">Terror</a>
+          <a href="#categorias" class="ft-pill">Suspense</a>
+          <a href="#categorias" class="ft-pill">Comédia</a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="ft-divider">
+
+    <div class="ft-bottom">
+
+      <p class="ft-dev">Desenvolvido por Arthur Mesquita</p>
+
+      <div class="ft-icons">
+        <a href="#" class="ft-icon" aria-label="Instagram">IG</a>
+        <a href="#" class="ft-icon" aria-label="Twitter/X">X</a>
+        <a href="#" class="ft-icon" aria-label="E-mail">@</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="/java/script.js"></script>
+
+</body>
+
+</html>
